@@ -60,6 +60,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
     </model>
     <gravity>0 0 -9.8</gravity>
@@ -87,10 +88,10 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>1639 261000000</sim_time>
-      <real_time>77 277512216</real_time>
-      <wall_time>1579934428 212448377</wall_time>
-      <iterations>76510</iterations>
+      <sim_time>1686 661000000</sim_time>
+      <real_time>47 629665353</real_time>
+      <wall_time>1583064414 455150321</wall_time>
+      <iterations>47400</iterations>
       <model name='building_room_No1'>
         <pose frame=''>1.13605 0.22143 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -200,13 +201,13 @@
         </link>
       </model>
       <model name='coke_can'>
-        <pose frame=''>9.87438 4.31454 -0.00304 -0.060669 -0.014936 -0.00066</pose>
+        <pose frame=''>9.87435 4.31456 -0.003186 -0.052539 -0.006361 -0.000781</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>9.87438 4.31454 -0.00304 -0.060669 -0.014936 -0.00066</pose>
+          <pose frame=''>9.87435 4.31456 -0.003186 -0.052539 -0.006361 -0.000781</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>4e-06 -2e-06 -2e-06 4.5e-05 8e-05 9e-06</acceleration>
-          <wrench>2e-06 -1e-06 -1e-06 0 -0 0</wrench>
+          <acceleration>-0.254766 0.224089 0.026614 -0.799874 1.36875 2.69847</acceleration>
+          <wrench>-0.099359 0.087395 0.010379 0 -0 0</wrench>
         </link>
       </model>
       <model name='ground_plane'>
@@ -220,10 +221,10 @@
         </link>
       </model>
       <model name='my_ball_0'>
-        <pose frame=''>7.8625 -1.49334 0.1 0 -0 0</pose>
+        <pose frame=''>7.8625 0.873746 0.1 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose frame=''>7.8625 -1.49334 0.1 0 -0 0</pose>
+          <pose frame=''>7.8625 0.873746 0.1 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -265,7 +266,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>4.82499 19.5584 19.8943 0 0.741287 -1.83631</pose>
+        <pose frame=''>5.59918 12.5808 13.7598 0 0.741287 -1.83631</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -316,6 +317,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_1'>
         <collision name='Wall_1_Collision'>
@@ -361,6 +363,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_11'>
         <collision name='Wall_11_Collision'>
@@ -406,6 +409,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_12'>
         <collision name='Wall_12_Collision'>
@@ -451,6 +455,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_14'>
         <collision name='Wall_14_Collision'>
@@ -496,6 +501,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_16'>
         <collision name='Wall_16_Collision'>
@@ -541,6 +547,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_18'>
         <collision name='Wall_18_Collision'>
@@ -586,6 +593,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_2'>
         <collision name='Wall_2_Collision'>
@@ -631,6 +639,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_3'>
         <pose frame=''>12.6883 -0 0 0 -0 1.5708</pose>
@@ -793,6 +802,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_4'>
         <collision name='Wall_4_Collision'>
@@ -838,6 +848,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_5'>
         <pose frame=''>-12.6617 6 0 0 -0 -1.5708</pose>
@@ -1000,6 +1011,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_6'>
         <pose frame=''>-9.16165 0.8 0 0 -0 -0.497343</pose>
@@ -1162,6 +1174,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_8'>
         <collision name='Wall_8_Collision'>
@@ -1207,6 +1220,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <link name='Wall_9'>
         <collision name='Wall_9_Collision'>
@@ -1252,6 +1266,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <static>1</static>
     </model>
@@ -1262,6 +1277,7 @@
           <geometry>
             <mesh>
               <uri>model://pine_tree/meshes/pine_tree.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -1285,6 +1301,7 @@
               <submesh>
                 <name>Branch</name>
               </submesh>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <material>
@@ -1302,6 +1319,7 @@
               <submesh>
                 <name>Bark</name>
               </submesh>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <material>
@@ -1315,6 +1333,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>-1.64546 13.5587 0 0 -0 0</pose>
     </model>
@@ -1325,6 +1344,7 @@
           <geometry>
             <mesh>
               <uri>model://pine_tree/meshes/pine_tree.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -1348,6 +1368,7 @@
               <submesh>
                 <name>Branch</name>
               </submesh>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <material>
@@ -1365,6 +1386,7 @@
               <submesh>
                 <name>Bark</name>
               </submesh>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <material>
@@ -1378,6 +1400,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>3.4136 13.4584 0 0 -0 0</pose>
     </model>
@@ -1388,6 +1411,7 @@
           <geometry>
             <mesh>
               <uri>model://pine_tree/meshes/pine_tree.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -1411,6 +1435,7 @@
               <submesh>
                 <name>Branch</name>
               </submesh>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <material>
@@ -1428,6 +1453,7 @@
               <submesh>
                 <name>Bark</name>
               </submesh>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <material>
@@ -1441,6 +1467,7 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>-16.4091 7.0445 0 0 -0 0</pose>
     </model>
@@ -1514,12 +1541,14 @@
           <geometry>
             <mesh>
               <uri>model://cafe_table/meshes/cafe_table.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>5.251 4.70186 0 0 -0 0</pose>
     </model>
@@ -1593,12 +1622,14 @@
           <geometry>
             <mesh>
               <uri>model://cafe_table/meshes/cafe_table.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>2.02218 4.63961 0 0 -0 0</pose>
     </model>
@@ -1621,6 +1652,7 @@
           <geometry>
             <mesh>
               <uri>model://coke_can/meshes/coke_can.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <surface>
@@ -1650,12 +1682,14 @@
           <geometry>
             <mesh>
               <uri>model://coke_can/meshes/coke_can.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>9.87434 4.31469 0 0 -0 0</pose>
     </model>

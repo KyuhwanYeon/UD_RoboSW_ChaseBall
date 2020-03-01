@@ -32,17 +32,29 @@ void process_image_callback(const sensor_msgs::Image img)
     float TargetZ = 0;  //Target Angular Z 
 
     for (int i = 0; i < CameraHeight ; i++) {
-        for (int j = 0; j < CameraStep; j++) {
-            if (img.data[i * CameraStep + j] == white_pixel) {           
+        for (int j = 1; j < CameraStep-1; j++) {
+            // img.data is composed of R-G-B-R-G-B
+            // if the img.data value is 255 in 3 consecutive data, then it will be white
+            if (img.data[i * CameraStep + j-1] == white_pixel && img.data[i * CameraStep + j] == white_pixel && img.data[i * CameraStep + j+1] == white_pixel) { 
+                //ROS_INFO_STREAM("Pixel " +std::to_string(img.data[i * CameraStep + j])); 
+
                 Error += j - CenterStep;
                 DetectionCnt++;
             }
         }
     }
-    ROS_INFO_STREAM("Step length is " +std::to_string(CameraStep));
-    ROS_INFO_STREAM("Error is " +std::to_string(-Error/DetectionCnt/240));
-    if (DetectionCnt !=0){TargetX = 1; TargetZ = -Error/DetectionCnt/240;}
-    else {TargetX = 0; TargetZ=0; ROS_INFO_STREAM("There is no white ball in front of camera");}
+    // ROS_INFO_STREAM("Step length is " +std::to_string(CameraStep));
+    
+    if (DetectionCnt !=0)
+	{
+	TargetX = 2; 
+	TargetZ = -Error/90;
+	//ROS_INFO_STREAM("DetectionCnt: "+std::to_string(DetectionCnt));
+	ROS_INFO_STREAM("Target angular_z: "+std::to_string(TargetZ));
+	}
+    else 
+	{TargetX = 0; TargetZ=0; ROS_INFO_STREAM("There is no white ball in front of camera");}
+    
     drive_robot(TargetX, TargetZ);
 
 
