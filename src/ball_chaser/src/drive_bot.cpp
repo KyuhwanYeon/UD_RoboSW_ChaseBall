@@ -33,7 +33,7 @@ bool DriveRequest::call_back_drive_request(ball_chaser::DriveToTarget::Request& 
     motor_command_publisher.publish(motor_command);
 
     // Return a response message
-    res.msg_feedback = "DriveToTarget - linear_x: " + std::to_string(motor_command.linear.x) + " , angular_z: " + std::to_string(motor_command.angular.z);
+    res.msg_feedback = "Now driving - linear_x: " + std::to_string(motor_command.linear.x) + " , angular_z: " + std::to_string(motor_command.angular.z);
     ROS_INFO_STREAM(res.msg_feedback);
 
     return true;

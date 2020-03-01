@@ -47,8 +47,12 @@ void process_image_callback(const sensor_msgs::Image img)
     
     if (DetectionCnt !=0)
 	{
-	TargetX = 2; 
-	TargetZ = -Error/90;
+	TargetX = 1; 
+	TargetZ = -Error/20000;  // P - controller
+	if (TargetZ>4)  //  Threshold for angular.z
+	{TargetZ = 4;}
+	if (TargetZ<-4)
+	{TargetZ = -4;}
 	//ROS_INFO_STREAM("DetectionCnt: "+std::to_string(DetectionCnt));
 	ROS_INFO_STREAM("Target angular_z: "+std::to_string(TargetZ));
 	}
@@ -74,7 +78,7 @@ int main(int argc, char** argv)
     client = n.serviceClient<ball_chaser::DriveToTarget>("/ball_chaser/command_robot");
 
     // Subscribe to /camera/rgb/image_raw topic to read the image data inside the process_image_callback function
-    ros::Subscriber sub1 = n.subscribe("/camera/rgb/image_raw", 10, process_image_callback);
+    ros::Subscriber sub1 = n.subscribe("/camera/rgb/image_raw", 100, process_image_callback);
 
     // Handle ROS communication events
     ros::spin();
