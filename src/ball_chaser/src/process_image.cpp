@@ -28,8 +28,11 @@ void process_image_callback(const sensor_msgs::Image img)
     int DetectionCnt = 0;
     float CenterStep = CameraStep/2;
     float Error=0; // Error from center step
+    float AccmError = 0; // Accumulated error
     float TargetX = 0;  //Target linear x velocity
     float TargetZ = 0;  //Target Angular Z 
+    float Pgain = 0;
+    float Igain = 0;
 
     for (int i = 0; i < CameraHeight ; i++) {
         for (int j = 1; j < CameraStep-1; j++) {
@@ -38,7 +41,10 @@ void process_image_callback(const sensor_msgs::Image img)
             if (img.data[i * CameraStep + j-1] == white_pixel && img.data[i * CameraStep + j] == white_pixel && img.data[i * CameraStep + j+1] == white_pixel) { 
                 //ROS_INFO_STREAM("Pixel " +std::to_string(img.data[i * CameraStep + j])); 
 
-                Error += j - CenterStep;
+                Error = j - CenterStep;
+		AccmError += Error;
+		if (AccmError >10000) {AccmError = 10000;}
+		else if (AccmError<-10000){AccmError = -10000;}
                 DetectionCnt++;
             }
         }
@@ -48,13 +54,22 @@ void process_image_callback(const sensor_msgs::Image img)
     if (DetectionCnt !=0)
 	{
 	TargetX = 1; 
-	TargetZ = -Error/20000;  // P - controller
+	
+	//if ((Error>10000) || (Error<-10000)) {Pgain  = 0.00005;}
+	//else if ((Error>5000) || (Error<-5000)) {Pgain = 0.00002;}
+	//else if ((Error>2000) || (Error<-2000)) {Pgain = 0.00001;}
+	//else{Pgain = 0.000005;}
+	Pgain = 0.005;
+	Igain = 0.0002;
+	TargetZ = -Error*Pgain - AccmError*Igain;  // P - controller
 	if (TargetZ>4)  //  Threshold for angular.z
 	{TargetZ = 4;}
 	if (TargetZ<-4)
 	{TargetZ = -4;}
 	//ROS_INFO_STREAM("DetectionCnt: "+std::to_string(DetectionCnt));
-	ROS_INFO_STREAM("Target angular_z: "+std::to_string(TargetZ));
+	ROS_INFO_STREAM("Error: "+std::to_string(Error)+ "   Pgain: " +std::to_string(Pgain) +"    P_controller_out: "+std::to_string(-Error*Pgain) );
+	ROS_INFO_STREAM("Accumulated Error: "+std::to_string(AccmError)+ "   Igain: " +std::to_string(Igain) +"    I_controller_out: "+std::to_string(-AccmError*Igain) );
+	ROS_INFO_STREAM("Target angular_z: "+std::to_string(TargetZ) );
 	}
     else 
 	{TargetX = 0; TargetZ=0; ROS_INFO_STREAM("There is no white ball in front of camera");}
@@ -78,7 +93,7 @@ int main(int argc, char** argv)
     client = n.serviceClient<ball_chaser::DriveToTarget>("/ball_chaser/command_robot");
 
     // Subscribe to /camera/rgb/image_raw topic to read the image data inside the process_image_callback function
-    ros::Subscriber sub1 = n.subscribe("/camera/rgb/image_raw", 100, process_image_callback);
+    ros::Subscriber sub1 = n.subscribe("/camera/rgb/image_raw", 5, process_image_callback);
 
     // Handle ROS communication events
     ros::spin();
